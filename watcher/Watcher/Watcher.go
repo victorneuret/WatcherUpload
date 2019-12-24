@@ -1,10 +1,12 @@
 package Watcher
 
 import (
-	"WatcherModule/Utils"
-	"github.com/radovskyb/watcher"
 	"log"
 	"time"
+
+	"github.com/radovskyb/watcher"
+
+	"github.com/victorneuret/WatcherUpload/Utils"
 )
 
 func Watcher() {
