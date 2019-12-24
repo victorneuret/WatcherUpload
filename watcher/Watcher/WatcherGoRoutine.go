@@ -1,7 +1,6 @@
 package Watcher
 
 import (
-	"fmt"
 	"github.com/victorneuret/WatcherUpload/Config"
 	"log"
 
@@ -13,12 +12,23 @@ func watcherGoRoutine(w *watcher.Watcher) {
 		select {
 		case event := <-w.Event:
 			if event.Path != Config.GetConfig().WatchDir {
-				fmt.Println(event)
+				modificationType(event)
 			}
 		case err := <-w.Error:
 			log.Fatalln(err)
 		case <-w.Closed:
 			return
 		}
+	}
+}
+
+func modificationType(event watcher.Event) {
+	switch event.Op {
+	case watcher.Create:
+	case watcher.Write:
+	case watcher.Remove:
+	case watcher.Rename:
+	case watcher.Move:
+	default:
 	}
 }
