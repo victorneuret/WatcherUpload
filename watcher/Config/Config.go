@@ -4,13 +4,21 @@ import (
 	"encoding/json"
 	"log"
 	"os"
+	"sync"
 )
 
 type Configuration struct {
 	WatchDir string `json:"watch-dir"`
 }
 
-var Config Configuration
+var config Configuration
+var mutex sync.Mutex
+
+func GetConfig() *Configuration {
+	mutex.Lock()
+	defer mutex.Unlock()
+	return &config
+}
 
 func LoadConfiguration() {
 	configFile, err := os.Open("Config/config.json")
@@ -24,7 +32,7 @@ func LoadConfiguration() {
 	}
 
 	jsonParser := json.NewDecoder(configFile)
-	err = jsonParser.Decode(&Config)
+	err = jsonParser.Decode(&config)
 	if err != nil {
 		panic("Config file loading failed")
 	}

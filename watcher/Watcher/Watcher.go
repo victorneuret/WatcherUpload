@@ -1,6 +1,7 @@
 package Watcher
 
 import (
+	"github.com/victorneuret/WatcherUpload/Config"
 	"log"
 	"time"
 
@@ -14,8 +15,8 @@ func Watcher() {
 
 	go watcherGoRoutine(w)
 
-	Utils.CreateDirIfNotExist("/tmp/watching")
-	if err := w.AddRecursive("/tmp/watching"); err != nil {
+	Utils.CreateDirIfNotExist(Config.GetConfig().WatchDir)
+	if err := w.AddRecursive(Config.GetConfig().WatchDir); err != nil {
 		log.Fatalln(err)
 	}
 
