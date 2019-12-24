@@ -6,8 +6,8 @@ import (
 
 	"github.com/radovskyb/watcher"
 
-	"github.com/victorneuret/watcher/Config"
-	"github.com/victorneuret/watcher/Utils"
+	"github.com/victorneuret/WatcherUpload/watcher/Config"
+	"github.com/victorneuret/WatcherUpload/watcher/Utils"
 )
 
 func Watcher() {

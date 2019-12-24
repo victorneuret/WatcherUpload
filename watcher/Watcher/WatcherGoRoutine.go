@@ -5,7 +5,7 @@ import (
 
 	"github.com/radovskyb/watcher"
 
-	"github.com/victorneuret/watcher/Config"
+	"github.com/victorneuret/WatcherUpload/watcher/Config"
 )
 
 func watcherGoRoutine(w *watcher.Watcher) {

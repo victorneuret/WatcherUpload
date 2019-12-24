@@ -1,4 +1,4 @@
-module github.com/victorneuret/watcher
+module github.com/victorneuret/WatcherUpload/watcher
 
 go 1.13
 
