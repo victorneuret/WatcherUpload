@@ -1,10 +1,11 @@
 package Watcher
 
 import (
-	"github.com/victorneuret/WatcherUpload/Config"
 	"log"
 
 	"github.com/radovskyb/watcher"
+
+	"github.com/victorneuret/watcher/Config"
 )
 
 func watcherGoRoutine(w *watcher.Watcher) {

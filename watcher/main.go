@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/victorneuret/WatcherUpload/Config"
-	"github.com/victorneuret/WatcherUpload/Watcher"
+	"github.com/victorneuret/watcher/Config"
+	"github.com/victorneuret/watcher/Watcher"
 )
 
 func main() {
