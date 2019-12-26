@@ -47,7 +47,8 @@ func modificationType(event watcher.Event) {
 		log.Println("File Removed:", event.Path)
 		remove(event)
 	case watcher.Rename:
-		log.Println("File Renamed:", event.Path)
+		log.Println("File Renamed from:", event.OldPath, "to:", event.Path)
+		rename(event)
 	case watcher.Move:
 		log.Println("File Moved from:", event.OldPath, "to:", event.Path)
 	default:

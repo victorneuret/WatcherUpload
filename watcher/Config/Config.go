@@ -12,6 +12,7 @@ type Configuration struct {
 	ServerURL  string `json:"server-url"`
 	UploadPath string `json:"upload-path"`
 	RemovePath string `json:"remove-path"`
+	RenamePath string `json:"rename-path"`
 }
 
 var config Configuration

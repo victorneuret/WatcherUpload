@@ -2,5 +2,6 @@
   "watch-dir": "/tmp/watching",
   "server-url": "http://localhost:8080",
   "upload-path": "/upload",
-  "remove-path": "/remove"
+  "remove-path": "/remove",
+  "rename-path": "/rename"
 }
