@@ -26,12 +26,18 @@ func watcherGoRoutine(w *watcher.Watcher) {
 func modificationType(event watcher.Event) {
 	switch event.Op {
 	case watcher.Create:
+		log.Println("File Created:", event.Path)
 		upload(event)
 	case watcher.Write:
+		log.Println("File Written:", event.Path)
 		upload(event)
 	case watcher.Remove:
+		log.Println("File Removed:", event.Path)
 	case watcher.Rename:
+		log.Println("File Renamed:", event.Path)
 	case watcher.Move:
+		log.Println("File Moved from:", event.OldPath, "to:", event.Path)
 	default:
+		log.Println("Action not handled:", event.Op, "on", event.Path)
 	}
 }
