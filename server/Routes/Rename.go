@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 )
 
 func rename(_ http.ResponseWriter, r *http.Request) {
@@ -29,5 +30,9 @@ func rename(_ http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	log.Println(oldPath, "renamed to", newPath, "successfully")
+	if filepath.Dir(oldPath) != filepath.Dir(newPath) {
+		log.Println(oldPath, "moved to", newPath, "successfully")
+	} else {
+		log.Println(oldPath, "renamed to", newPath, "successfully")
+	}
 }

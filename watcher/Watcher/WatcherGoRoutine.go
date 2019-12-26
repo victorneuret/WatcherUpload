@@ -51,6 +51,7 @@ func modificationType(event watcher.Event) {
 		rename(event)
 	case watcher.Move:
 		log.Println("File Moved from:", event.OldPath, "to:", event.Path)
+		rename(event)
 	default:
 		log.Println("Action not handled:", event.Op, "on", event.Path)
 	}
