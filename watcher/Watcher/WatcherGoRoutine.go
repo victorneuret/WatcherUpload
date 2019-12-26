@@ -26,7 +26,9 @@ func watcherGoRoutine(w *watcher.Watcher) {
 func modificationType(event watcher.Event) {
 	switch event.Op {
 	case watcher.Create:
+		upload(event)
 	case watcher.Write:
+		upload(event)
 	case watcher.Remove:
 	case watcher.Rename:
 	case watcher.Move:

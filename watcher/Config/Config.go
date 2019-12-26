@@ -8,7 +8,9 @@ import (
 )
 
 type Configuration struct {
-	WatchDir string `json:"watch-dir"`
+	WatchDir   string `json:"watch-dir"`
+	ServerURL  string `json:"server-url"`
+	UploadPath string `json:"upload-path"`
 }
 
 var config Configuration
