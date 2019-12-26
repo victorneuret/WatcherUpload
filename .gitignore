@@ -1,3 +1,4 @@
 .idea
 
 /watcher/Config/config.json
+/server/Config/config.json
