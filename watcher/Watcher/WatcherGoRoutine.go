@@ -2,6 +2,8 @@ package Watcher
 
 import (
 	"log"
+	"os"
+	"path/filepath"
 
 	"github.com/radovskyb/watcher"
 
@@ -24,6 +26,16 @@ func watcherGoRoutine(w *watcher.Watcher) {
 }
 
 func modificationType(event watcher.Event) {
+	filename := filepath.Base(event.Path)
+	if filename == ".DS_Store" {
+		return
+	}
+
+	fi, err := os.Stat(event.Path)
+	if err == nil && fi.Mode().IsDir() {
+		return
+	}
+
 	switch event.Op {
 	case watcher.Create:
 		log.Println("File Created:", event.Path)
@@ -33,6 +45,7 @@ func modificationType(event watcher.Event) {
 		upload(event)
 	case watcher.Remove:
 		log.Println("File Removed:", event.Path)
+		remove(event)
 	case watcher.Rename:
 		log.Println("File Renamed:", event.Path)
 	case watcher.Move:

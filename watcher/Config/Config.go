@@ -11,6 +11,7 @@ type Configuration struct {
 	WatchDir   string `json:"watch-dir"`
 	ServerURL  string `json:"server-url"`
 	UploadPath string `json:"upload-path"`
+	RemovePath string `json:"remove-path"`
 }
 
 var config Configuration

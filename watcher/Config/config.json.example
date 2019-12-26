@@ -1,5 +1,6 @@
 {
   "watch-dir": "/tmp/watching",
   "server-url": "http://localhost:8080",
-  "upload-path": "/upload"
+  "upload-path": "/upload",
+  "remove-path": "/remove"
 }

@@ -5,7 +5,6 @@ import (
 	"github.com/radovskyb/watcher"
 	"github.com/victorneuret/WatcherUpload/watcher/Config"
 	"io"
-	"io/ioutil"
 	"log"
 	"mime/multipart"
 	"net/http"
@@ -59,12 +58,9 @@ func upload(event watcher.Event) {
 	r.Header.Add("Content-Type", writer.FormDataContentType())
 
 	client := &http.Client{}
-	res, err := client.Do(r)
+	_, err = client.Do(r)
 	if err != nil {
 		log.Println(err)
 		return
 	}
-
-	message, _ := ioutil.ReadAll(res.Body)
-	log.Printf(string(message))
 }
